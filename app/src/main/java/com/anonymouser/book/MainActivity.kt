@@ -3,7 +3,7 @@ package com.anonymouser.book
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.anonymouser.book.view.HomeActivity
+import com.anonymouser.book.view.home.HomeActivity
 
 /**
  * 保留第一屏

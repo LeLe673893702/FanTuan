@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.LocaleList;
+import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 
 import com.aitangba.swipeback.ActivityLifecycleHelper;
@@ -17,11 +18,11 @@ import com.anonymouser.book.bean.PaintInfo;
 import com.anonymouser.book.bean.UserInfoDao;
 import com.anonymouser.book.bean.ZhuiShuBookContentDao;
 import com.github.yuweiguocn.library.greendao.MigrationHelper;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 
 import org.greenrobot.greendao.database.Database;
@@ -29,14 +30,14 @@ import org.greenrobot.greendao.database.Database;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by YandZD on 2017/7/13.
  */
 
 public class BookApp extends MultiDexApplication {
-    private static GoogleAnalytics sAnalytics;
     public static Context mContext = null;
-    private Tracker mTracker;
 
     public static boolean isSimple = true;
 
@@ -44,8 +45,6 @@ public class BookApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        sAnalytics = GoogleAnalytics.getInstance(this);
-        sAnalytics.setLocalDispatchPeriod(30);
 
         registerActivityLifecycleCallbacks(ActivityLifecycleHelper.build());
 
@@ -57,6 +56,14 @@ public class BookApp extends MultiDexApplication {
         initOkGo();
 
         initDataBase();
+
+        initLogger();
+
+        Bmob.initialize(this, "a1bf3072183ffa27e465048d43061e93");
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
     /* 判断手机字体繁简体 */
@@ -96,14 +103,15 @@ public class BookApp extends MultiDexApplication {
         }
     }
 
-    synchronized public Tracker getDefaultTracker() {
-        if (mTracker == null) {
-            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
-            mTracker = sAnalytics.newTracker(R.xml.global_tracker);
-            sAnalytics.enableAutoActivityReports(this);
-        }
-        return mTracker;
+    public void initLogger() {
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override
+            public boolean isLoggable(int priority, @Nullable String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
+
 
     private void initDataBase() {
         MySQLiteOpenHelper helper = new MySQLiteOpenHelper(this, "db",

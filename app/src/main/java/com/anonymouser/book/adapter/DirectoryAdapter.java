@@ -5,24 +5,15 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.anonymouser.book.R;
 import com.anonymouser.book.bean.ClickChapterEvent;
-import com.anonymouser.book.bean.DirectoryBean;
-import com.anonymouser.book.module.BookModule;
-import com.anonymouser.book.view.ReadActivity;
+import com.anonymouser.book.view.read.ReadActivity;
 import com.anonymouser.book.widget.LocaleTextView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by YandZD on 2017/7/16.

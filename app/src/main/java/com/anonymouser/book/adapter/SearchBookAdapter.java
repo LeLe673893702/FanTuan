@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.anonymouser.book.R;
 import com.anonymouser.book.bean.BookCaseBean;
@@ -18,8 +17,9 @@ import com.anonymouser.book.bean.SearchBookInfoBean;
 import com.anonymouser.book.event.AddBookCaseEvent;
 import com.anonymouser.book.module.BookModule;
 import com.anonymouser.book.utlis.ImgLoad;
-import com.anonymouser.book.view.ReadActivity;
-import com.anonymouser.book.view.ReadZhuiShuActivity;
+import com.anonymouser.book.view.bookinfo.BookInfoActivity;
+import com.anonymouser.book.view.read.ReadActivity;
+import com.anonymouser.book.view.read.ReadZhuiShuActivity;
 import com.anonymouser.book.widget.LocaleTextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -108,21 +108,14 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
         @OnClick(R.id.view_book_info)
         public void onBookInfo(View view) {
             View details = (View) view.getTag();
-            if (details.isShown()) {
-                details.setVisibility(View.GONE);
-                mShowingDetails = null;
-                mShowingIndex = -1;
-            } else {
-                if (mShowingDetails != null)
-                    mShowingDetails.setVisibility(View.GONE);
-                details.setVisibility(View.VISIBLE);
-                mShowingDetails = details;
-                mShowingIndex = (int) details.getTag();
-            }
-
             int index = (int) details.getTag();
             SearchBookInfoBean bean = mBeans.get(index);
             tvIntroduction.setText(bean.getIntro().replaceAll("\\\\n", "\n"));
+
+            Intent intent = new Intent(mContext, BookInfoActivity.class);
+            intent.putExtra("bookName", bean.getBookName());
+            mContext.startActivity(intent);
+
         }
 
         @OnClick(R.id.bt_read)

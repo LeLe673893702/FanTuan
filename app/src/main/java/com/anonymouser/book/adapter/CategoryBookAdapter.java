@@ -1,6 +1,7 @@
 package com.anonymouser.book.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,11 @@ import android.widget.ImageView;
 
 import com.anonymouser.book.R;
 import com.anonymouser.book.bean.CategoryBookItemBean;
-import com.anonymouser.book.bean.RankBean;
 import com.anonymouser.book.utlis.ImgLoad;
-import com.anonymouser.book.view.SearchActivity;
+import com.anonymouser.book.view.bookinfo.BookInfoActivity;
+import com.anonymouser.book.view.search.SearchActivity;
 import com.anonymouser.book.widget.LocaleTextView;
+import com.orhanobut.logger.Logger;
 
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -84,7 +86,9 @@ public class CategoryBookAdapter extends RecyclerView.Adapter<CategoryBookAdapte
                 @Override
                 public void onClick(View v) {
                     String bookName = (String) v.getTag();
-                    mContext.startActivity(SearchActivity.getSearchIntent(mContext, bookName));
+                    Intent intent = new Intent(mContext, BookInfoActivity.class);
+                    intent.putExtra("bookName", bookName);
+                    mContext.startActivity(intent);
                 }
             });
         }
@@ -97,6 +101,7 @@ public class CategoryBookAdapter extends RecyclerView.Adapter<CategoryBookAdapte
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            Logger.e(bean.toString());
             tvBookName.setText(bean.getTitle());
             tvAuther.setText(bean.getAuthor());
             tvIntro.setText(bean.getShortIntro());

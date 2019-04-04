@@ -5,16 +5,12 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.anonymouser.book.R;
 import com.anonymouser.book.bean.ClickChapterEvent;
 import com.anonymouser.book.bean.ZhuiShuChaptersBean;
-import com.anonymouser.book.view.ReadActivity;
-import com.anonymouser.book.view.ReadZhuiShuActivity;
+import com.anonymouser.book.view.read.ReadZhuiShuActivity;
 import com.anonymouser.book.widget.LocaleTextView;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import org.greenrobot.eventbus.EventBus;
 

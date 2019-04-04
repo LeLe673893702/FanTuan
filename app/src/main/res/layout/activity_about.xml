@@ -46,8 +46,6 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:background="#ffffff"
-        android:elevation="10dp"
         android:src="@drawable/app_logo" />
 
     <TextView
@@ -62,6 +60,6 @@
         android:background="#fefefe"
         android:elevation="10dp"
         android:gravity="center"
-        android:text="http://yourbuffslonnol.com"
+        android:text="熊猫读书v1.0.0，值得你拥有"
         android:textColor="#1D9FCE" />
 </RelativeLayout>

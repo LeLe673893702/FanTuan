@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">饭团小说</string>
+    <string name="app_name">熊猫阅读</string>
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -36,4 +36,7 @@
     <string name="teach_02_msg">按住右边方块即可拖动排序。</string>
     <string name="feedback_msg">求书、吐槽、不满，畅所欲言。</string>
     <string name="feedback_email">留下邮箱我们能及时回答您的问题</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

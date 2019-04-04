@@ -8,15 +8,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.anonymouser.book.R;
 import com.anonymouser.book.bean.BookCaseBean;
 import com.anonymouser.book.bean.LastChapterBean;
-import com.anonymouser.book.presenter.HomePresenter;
+import com.anonymouser.book.view.home.HomePresenter;
 import com.anonymouser.book.utlis.ImgLoad;
-import com.anonymouser.book.view.ReadActivity;
-import com.anonymouser.book.view.ReadZhuiShuActivity;
+import com.anonymouser.book.view.read.ReadActivity;
+import com.anonymouser.book.view.read.ReadZhuiShuActivity;
 import com.anonymouser.book.widget.LocaleTextView;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuAdapter;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
@@ -104,17 +103,14 @@ public class BookCaseAdapter extends SwipeMenuAdapter<BookCaseAdapter.DefaultVie
             ButterKnife.bind(this, itemView);
             itemView.findViewById(R.id.iv_touch).setOnTouchListener(this);
             rootView = itemView;
-            rootView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    BookCaseBean bean = (BookCaseBean) v.getTag();
-                    if (bean.getIsZhuiShu()) {
-                        mContext.startActivity(ReadZhuiShuActivity.Companion.newInstance(mContext, bean));
-                    } else {
-                        mContext.startActivity(ReadActivity.Companion.newInstance(mContext, bean));
-                    }
-
+            rootView.setOnClickListener(v -> {
+                BookCaseBean bean = (BookCaseBean) v.getTag();
+                if (bean.getIsZhuiShu()) {
+                    mContext.startActivity(ReadZhuiShuActivity.Companion.newInstance(mContext, bean));
+                } else {
+                    mContext.startActivity(ReadActivity.Companion.newInstance(mContext, bean));
                 }
+
             });
         }
 

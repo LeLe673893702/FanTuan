@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#B63327</color>
-    <color name="colorPrimaryDark">#80241B</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#ff33b5e5</color>
+    <color name="colorPrimaryDark">#ff33b5e5</color>
+    <color name="colorAccent">#ff33b5e5</color>
 
     <!--<color name="baseColor">#A40E15</color>-->
-    <color name="baseColor">#B63327</color>
-    <color name="baseFocuColor">#80241B</color>
+    <color name="baseColor">#ff33b5e5</color>
+    <color name="baseFocuColor">#ff33b5e5</color>
 
     <color name="book_loading_background">#00000000</color>
     <color name="book_loading_book">#ff33b5e5</color>
@@ -21,4 +21,33 @@
     <color name="reader_background_white_color">#ffeae5e0</color>
     <color name="reader_background_white_green">#ffbed0bf</color>
     <color name="reader_background_yellow_color">#ff031923</color>
+
+    <!-- 一级字色 -->
+    <color name="base_text_1_color">#ff1c1c1c</color>
+    <!-- 二级字色 -->
+    <color name="base_text_2_color">#ff717171</color>
+    <!-- 三级（弱化）字色 -->
+    <color name="base_text_3_color">#ffaaaaaa</color>
+    <!-- 背景色 -->
+    <color name="base_background">#fff5f5f5</color>
+    <!-- 分割线 -->
+    <color name="base_divider_color">@color/base_background</color>
+
+    <!--黑色-->
+    <color name="base_black">#ff000000</color>
+    <!--50%黑色-->
+    <color name="base_black_50">#7f000000</color>
+    <!--20%黑色-->
+    <color name="base_black_20">#33000000</color>
+    <color name="base_black_10">#19000000</color>
+    <color name="base_black_40">#66000000</color>
+
+    <!--白色-->
+    <color name="base_white">#ffffffff</color>
+    <color name="base_white_30">#4dffffff</color>
+
+    <color name="divider_bg">#ffe9e8e8</color>
+
+    <color name="deep_gray">#818181</color>
+
 </resources>
