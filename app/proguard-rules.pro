@@ -58,6 +58,9 @@ public static java.lang.String TABLENAME;
 # If you do not use RxJava:
 -dontwarn rx.**
 
+-dontwarn com.uber.autodispose.**
+-dontwarn com.simplecityapps.**
+
 
 -keepattributes *Annotation*
 -keepclassmembers class ** {
