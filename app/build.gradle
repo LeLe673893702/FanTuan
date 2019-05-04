@@ -15,10 +15,7 @@ android {
         multiDexEnabled true
     }
     buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+
         greendao {
             //这里由1改成了2, 只认正整数
             schemaVersion 4

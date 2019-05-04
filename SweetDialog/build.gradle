@@ -16,10 +16,6 @@ android {
     buildToolsVersion '28.0.3'
 
     buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
         greendao {
         }
     }

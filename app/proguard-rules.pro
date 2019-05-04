@@ -25,61 +25,21 @@
 #-renamesourcefileattribute SourceFile
 
 #local proguard
--keep class com.anonymouser.book.bean.*{ *; }
--keep class com.anonymouser.book.module.*{ *; }
--keep class com.anonymouser.book.event.*{ *; }
-
--keep class org.jsoup.**
 
 
 #okhttp
--dontwarn okhttp3.**
--keep class okhttp3.**{*;}
-
-#okio
--dontwarn okio.**
--keep class okio.**{*;}
-
-#okgo
--dontwarn com.lzy.okgo.**
--keep class com.lzy.okgo.**{*;}
-
-#okrx2
--dontwarn com.lzy.okrx2.**
--keep class com.lzy.okrx2.**{*;}
-
--keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
-public static java.lang.String TABLENAME;
-}
--keep class **$Properties
-
-# If you do not use SQLCipher:
--dontwarn org.greenrobot.greendao.database.**
-# If you do not use RxJava:
--dontwarn rx.**
-
 -dontwarn com.uber.autodispose.**
 -dontwarn com.simplecityapps.**
 
+-ignorewarnings
 
--keepattributes *Annotation*
--keepclassmembers class ** {
-    @org.greenrobot.eventbus.Subscribe <methods>;
+-keepattributes Signature,*Annotation*
+
+# keep BmobSDK
+-dontwarn cn.bmob.v3.**
+-keep class cn.bmob.v3.** {*;}
+
+# 确保JavaBean不被混淆-否则gson将无法将数据解析成具体对象
+-keep class * extends cn.bmob.v3.BmobObject {
+    *;
 }
--keep enum org.greenrobot.eventbus.ThreadMode { *; }
-
-# Only required if you use AsyncExecutor
--keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
-    <init>(java.lang.Throwable);
-}
-
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep public class * extends com.bumptech.glide.AppGlideModule
--keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
-  **[] $VALUES;
-  public *;
-}
-
- -keep class cn.pedant.SweetAlert.Rotate3dAnimation {
-    public <init>(...);
- }

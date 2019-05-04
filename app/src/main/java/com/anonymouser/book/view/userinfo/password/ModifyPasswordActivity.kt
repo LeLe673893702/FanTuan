@@ -21,6 +21,9 @@ class ModifyPasswordActivity : AppCompatActivity() {
         tvConfirm.setOnClickListener {
             updatePassword()
         }
+        ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     @SuppressLint("CheckResult")

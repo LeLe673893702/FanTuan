@@ -23,6 +23,9 @@ class ModifyNicknameActivity : AppCompatActivity() {
         tvConfirm.setOnClickListener {
             updateNickname(etNewNickname.text.toString())
         }
+        ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     @SuppressLint("CheckResult")
